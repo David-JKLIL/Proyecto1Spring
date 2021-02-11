@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>Hola</h1>
+        <div th:if="${personas != null and !personas.empty}">
+            <table border="1">
+                <tr >
+                    <th>Nombre</th>
+                    <th>Apellido</th>
+                    <th>Email</th>
+                    <th>Telefono</th>
+                </tr>
+                <tr th:each="p: ${personas}">
+                    <td th:text="${p.nombre}"> Esto es el nombre</td>
+                    <td th:text="${p.apellido}" > Esto es el apellido</td>
+                    <td th:text="${p.email}" > Esto es el email</td>
+                    <td th:text="${p.telefono}" > Esto es el telefono</td>
+                </tr>
+            </table>
+        </div>
+        <div th:if="${personas == null or personas.empty}"> No hay personas registradas</div>
+    </body>
+</html>
